@@ -1,4 +1,5 @@
-import WorldData.WorldData;
+package WorldData;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
