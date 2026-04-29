@@ -62,7 +62,7 @@ public class ADDrone {
     }
 
 
-    public void updateAdDrones(WorldData wd, PowerSystem ps, ArrayList<Person> pl, ArrayList<Store> sl) {
+    public void updateAdDrone(WorldData wd, PowerSystem ps, ArrayList<Person> pl, ArrayList<Store> sl) {
         for (int i = 0; i < 5; i++) {
             if (active == 0) continue;
 

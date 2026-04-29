@@ -7,13 +7,13 @@ public class Store {
     protected String name;
     protected boolean open;
 
-    public Store(int x, int y, int stock, double vault, String name, boolean open) {
-        this.x = x;
-        this.y = y;
-        this.stock = stock;
-        this.vault = vault;
-        this.name = name;
-        this.open = open;
+    public Store(StoreBuilder builder) {
+        this.x = builder.x;
+        this.y = builder.y;
+        this.stock = builder.stock;
+        this.vault = builder.vault;
+        this.name = builder.name;
+        this.open = builder.open;
     }
 
     public int getX() {

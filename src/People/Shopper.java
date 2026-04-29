@@ -40,7 +40,17 @@ public class Shopper extends Person {
         this.hunger += amt;
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return "Shopper{" +
+                "id=" + id +
+                ", x=" + x +
+                ", y=" + y +
+                ", active=" + active +
+                ", name='" + name + '\'' +
+                ", money=" + money +
+                ", stress=" + stress +
+                ", hunger=" + hunger +
+                '}';
+    }
 }

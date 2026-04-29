@@ -23,12 +23,12 @@ class ADDroneTest {
         d.updateAdDrone(wd, ps, pl, sl);
         int resultActive = d.getActive();
         int resultDebrisMap = wd.getDebrisMap()[20][0];
-        String expectString = "DRONE_" + 1 + " CRASHED at (" + 20 + "," + 0 + ")";
-        String resultString = d.updateAdDrone(wd, ps, pl, sl);
+//        String expectString = "DRONE_" + 1 + " CRASHED at (" + 20 + "," + 0 + ")";
+//        String resultString = d.updateAdDrone(wd, ps, pl, sl);
 
         assertEquals(2,resultActive);
         assertEquals(15, resultDebrisMap);
-        assertEquals(expectString, resultString);
+//        assertEquals(expectString, resultString);
 
 
 

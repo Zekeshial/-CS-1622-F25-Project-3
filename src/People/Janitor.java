@@ -1,4 +1,8 @@
 package People;
 
-public class Janitor {
+public class Janitor extends Person{
+
+    public Janitor(PersonBuilder builder) {
+        super(builder);
+    }
 }

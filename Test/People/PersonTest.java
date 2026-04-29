@@ -8,9 +8,22 @@ import static org.junit.jupiter.api.Assertions.*;
 class PersonTest {
     @Test
     public void movableTest() {
-        Person p = new Shopper(1, "Shopper_" + 1, 50, 50, 200, true);
+        Person p = (Shopper) new ShopperBuilder()
+                .money(200)
 
-        p.moveToward(0,0, );
+
+
+
+                .id(1)
+                .x(5)
+                .y(5)
+                .active(true)
+                .name("bob")
+                .build();
+
+        WorldData wd = new WorldData();
+
+        p.moveToward(0,0, wd);
         int yResult = p.getY();
         int xResult = p.getX();
 
@@ -21,7 +34,19 @@ class PersonTest {
 
     @Test
     public void movableTest2() {
-        Person p = new Shopper(1, "Shopper_" + 1, 50, 50, 200, true);
+        Person p = (Shopper) new ShopperBuilder()
+                .money(200)
+
+
+
+
+                .id(1)
+                .x(5)
+                .y(5)
+                .active(true)
+                .name("bob")
+                .build();
+
         WorldData wd = new WorldData();
 
         p.moveToward(60,0, wd);
@@ -36,7 +61,19 @@ class PersonTest {
 
     @Test
     public void movableTest3() {
-        Person p = new Shopper(1, "Shopper_" + 1, 502, 50, 200, true);
+        Person p = (Shopper) new ShopperBuilder()
+                .money(200)
+
+
+
+
+                .id(1)
+                .x(5)
+                .y(5)
+                .active(true)
+                .name("bob")
+                .build();
+
         WorldData wd = new WorldData();
 
         p.moveToward(60,0, wd);
@@ -51,7 +88,19 @@ class PersonTest {
 
     @Test
     public void movableTest4() {
-        Person p = new Shopper(1, "Shopper_" + 1, 50, 502, 200, true);
+        Person p = (Shopper) new ShopperBuilder()
+                .money(200)
+
+
+
+
+                .id(1)
+                .x(5)
+                .y(5)
+                .active(true)
+                .name("bob")
+                .build();
+
         WorldData wd = new WorldData();
 
         p.moveToward(60,0, wd);
@@ -66,7 +115,19 @@ class PersonTest {
 
     @Test
     public void movableTest5() {
-        Person p = new Shopper(1, "Shopper_" + 1, 50, 50, 200, true);
+        Person p = (Shopper) new ShopperBuilder()
+                .money(200)
+
+
+
+
+                .id(1)
+                .x(5)
+                .y(5)
+                .active(true)
+                .name("bob")
+                .build();
+
         WorldData wd = new WorldData();
 
         p.moveToward(0,60, wd);

@@ -3,8 +3,8 @@ package People;
 public class ShopperBuilder extends PersonBuilder {
 
     protected double money;
-    protected int stress;
-    protected int hunger;
+    protected int stress = 0;
+    protected int hunger = 0;
 
     public ShopperBuilder money(double money) {
         this.money = money;
