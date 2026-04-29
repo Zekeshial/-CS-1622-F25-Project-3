@@ -9,12 +9,12 @@ public abstract class Person implements Movable {
     protected boolean active;
     protected String name;
 
-    public Person(int id, int x, int y, boolean active, String name) {
-        this.id = id;
-        this.x = x;
-        this.y = y;
-        this.active = active;
-        this.name = name;
+    public Person(PersonBuilder builder) {
+        this.id = builder.id;
+        this.x = builder.x;
+        this.y = builder.y;
+        this.active = builder.active;
+        this.name = builder.name;
     }
 
     public int getId() {

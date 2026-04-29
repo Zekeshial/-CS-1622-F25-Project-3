@@ -1,10 +1,10 @@
 package WorldData;
 
 public class Config {
-    int mapSize = 100;
-    int maxPeople = 500;
-    int maxStores = 50;
-    int seed = 2026;
+    private int mapSize = 100;
+    private int maxPeople = 500;
+    private int maxStores = 50;
+    private int seed = 2026;
 
     public Config() {
     }

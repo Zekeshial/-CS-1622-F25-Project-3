@@ -2,6 +2,8 @@ package MallSystems;
 
 import Interfaces.Movable;
 import People.Person;
+import People.Shopper;
+import People.VIP;
 import Stores.Store;
 import WorldData.WorldData;
 
@@ -89,21 +91,26 @@ public class ADDrone {
 
                 // If reached store, hover and influence shoppers
                 if (x == sl.get(ts).getX() && y == sl.get(ts).getY()) {
-                    for (int p = 0; p < pl.size(); p++) {
-                        if (p_active[p] && Math.abs(p_x[p] - dr_x[i]) < 10 && Math.abs(p_y[p] - dr_y[i]) < 10) {
+                    for (Person p : pl) {
+                        if (p.isActive() && Math.abs(p.getX() - x) < 10 && Math.abs(p.getY() - y) < 10) {
                             // Drones "suggest" food, increasing hunger so they go to the target store
-                            p_hunger[p] += 2;
+                            if (p instanceof Shopper) {
+                                ((Shopper) p).addHunger(2);
+                            } else if (p instanceof VIP) {
+                                ((VIP) p).addHunger(2);
+                            }
                         }
                     }
+
                     // Chance to pick a new target store
-                    if (rng.nextInt(100) < 5) {
-                        target = rng.nextInt(20);
+                    if (wd.getRng().nextInt(100) < 5) {
+                        target = wd.getRng().nextInt(20);
                     }
                 }
 
                 // Chance to malfunction and generate minor dirt (exhaust)
-                if (rng.nextInt(100) < 2) {
-                    debrisMap[dr_y[i]][dr_x[i]]++;
+                if (wd.getRng().nextInt(100) < 2) {
+                    wd.getDebrisMap()[y][x]++;
                 }
             }
         }
