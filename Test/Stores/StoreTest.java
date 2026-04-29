@@ -26,7 +26,7 @@ class StoreTest {
     }
 
     @Test
-    void updateStoreSystemTest() {
+    void updateStoreSystemTest2() {
 
         WorldData wd = new WorldData();
         PowerSystem ps = new PowerSystem();
