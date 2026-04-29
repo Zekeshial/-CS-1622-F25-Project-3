@@ -1,11 +1,13 @@
 package WorldData;
 
+import java.util.Collection;
 import java.util.Random;
 
 public class WorldData {
     private int[][] debrisMap;
     private int tickCount;
     private Random rng;
+    private Config c;
 
     public WorldData(int[][] debrisMap, int tickCount, Random rng) {
         this.debrisMap = debrisMap;
@@ -14,7 +16,7 @@ public class WorldData {
     }
 
     public WorldData() {
-        Config c = new Config();
+        this.c = new Config();
         this.debrisMap = new int[c.getMapSize()][c.getMapSize()];
         this.tickCount = 0;
         this.rng = new Random(c.getSeed());
@@ -32,6 +34,10 @@ public class WorldData {
         return tickCount;
     }
 
+    public void addTick() {
+        tickCount++;
+    }
+
     public void setTickCount(int tickCount) {
         this.tickCount = tickCount;
     }
@@ -42,5 +48,9 @@ public class WorldData {
 
     public void setRng(Random rng) {
         this.rng = rng;
+    }
+
+    public int clamp(int val) {
+        return Math.max(0, Math.min(c.getMapSize() - 1, val));
     }
 }

@@ -3,6 +3,7 @@ package MallSystems;
 public class PowerSystem {
     private boolean mallPower = true;
 
+
     public boolean isMallPower() {
         return mallPower;
     }

@@ -13,7 +13,7 @@ class StoreTest {
         PowerSystem ps = new PowerSystem();
         Store cs = new ClothStore("Boutique_" + 1, 25, 25, 50, true);
 
-        while (wd.getTickCount < 56) {
+        while (wd.getTickCount() < 56) {
             cs.updateStoreSystem(wd,ps);
             wd.addTick();
             Thread.sleep(10);
