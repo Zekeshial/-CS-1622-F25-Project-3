@@ -1,5 +1,9 @@
 package Stores;
 
+import Exceptitons.InsufficientFundsException;
+import MallSystems.PowerSystem;
+import WorldData.WorldData;
+
 public class Store {
 
     protected int x, y, stock;
@@ -62,5 +66,71 @@ public class Store {
 
     public void setOpen(boolean open) {
         this.open = open;
+    }
+
+    public void addMoneyToVault(double amt){
+        try {
+            if (amt <= 0) {
+                throw new IllegalArgumentException("You tried to add a negative amount or no money");
+            }
+            this.vault += amt;
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error message: " + e.getMessage());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
+
+    public void removeMoneyFromVault(double amt){
+        try {
+            if (amt > vault) {
+                throw new InsufficientFundsException("You tried to take out more money then was allowed");
+            }
+            if (amt <= 0) {
+                throw new IllegalArgumentException("You tried to remove a negative amount or no money");
+            }
+            this.vault += amt;
+        } catch (InsufficientFundsException | IllegalArgumentException e) {
+            System.out.println("Error message: " + e.getMessage());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public void addStock(int amt) {
+        try {
+            if (amt <= 0) {
+                throw new IllegalArgumentException("You tried to add a negative amount or 0");
+            }
+            this.stock += amt;
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error message: " + e.getMessage());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void removeStock(int amt) {
+        try {
+            if (amt > stock) {
+                throw new InsufficientFundsException("You tried to take out more money then was allowed");
+            }
+            if (amt <= 0) {
+                throw new IllegalArgumentException("You tried to remove a negative amount or no money");
+            }
+            this.stock += amt;
+        } catch (InsufficientFundsException | IllegalArgumentException e) {
+            System.out.println("Error message: " + e.getMessage());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void updateStoreSystem(WorldData wd, PowerSystem ps) {
+        if (stock <= 0) open = false;
+        if (ps.isMallPower() && wd.getTickCount() % 50 == 0) stock += 5; // Passive restock
     }
 }
