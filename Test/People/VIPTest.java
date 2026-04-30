@@ -61,7 +61,7 @@ class VIPTest {
     }
 
     @Test
-    void addUpdateShopper() {
+    void addUpdateVIP() {
 
 
         Config config = new Config();
@@ -110,6 +110,115 @@ class VIPTest {
         int result = v.getStress();
 
         assertEquals(20, result);
+
+    }
+
+    @Test
+    void addUpdateVIP2() {
+
+
+        Config config = new Config();
+        WorldData wd = new WorldData();
+        PowerSystem ps = new PowerSystem();
+        ArrayList<Store> sl = new ArrayList<>();
+        Mall m = new Mall();
+
+        for (int i = 0; i < config.getMaxStores()/2; i++) {
+            FoodStore f = (FoodStore) new FoodStoreBuilder()
+                    .name("Food_Stall_" + i)
+                    .x(wd.getRng().nextInt(config.getMapSize()))
+                    .y(wd.getRng().nextInt(config.getMapSize()))
+                    .stock(100)
+                    .open(true)
+                    .build();
+            sl.add(f);
+        }
+        for (int i = 0; i < config.getMaxStores()/2; i++) {
+            ClothStore c = (ClothStore) new ClothStoreBuilder()
+                    .name("Boutique_" + i)
+                    .x(wd.getRng().nextInt(config.getMapSize()))
+                    .y(wd.getRng().nextInt(config.getMapSize()))
+                    .stock(50)
+                    .open(true)
+                    .build();
+            sl.add(c);
+        }
+
+        VIP v = (VIP) new VIPBuilder()
+                .money(200)
+                .id(1)
+                .x(5)
+                .y(5)
+                .active(true)
+                .name("bob")
+                .build();
+
+        for(int x = 0; x < config.getMapSize(); x++) {
+            for(int y = 0; y < config.getMapSize(); y++) {
+                wd.addDebris(x,y,5);
+            }
+        }
+
+        while (wd.getTickCount() < 10) {
+            v.updateVIP(wd, ps, sl, m);
+            wd.addTick();
+        }
+
+        int result = v.getStress();
+
+        assertEquals(100, result);
+
+    }
+
+    @Test
+    void addUpdateVIP3() {
+
+
+        Config config = new Config();
+        WorldData wd = new WorldData();
+        PowerSystem ps = new PowerSystem();
+        ArrayList<Store> sl = new ArrayList<>();
+        Mall m = new Mall();
+
+        for (int i = 0; i < config.getMaxStores()/2; i++) {
+            FoodStore f = (FoodStore) new FoodStoreBuilder()
+                    .name("Food_Stall_" + i)
+                    .x(wd.getRng().nextInt(config.getMapSize()))
+                    .y(wd.getRng().nextInt(config.getMapSize()))
+                    .stock(100)
+                    .open(true)
+                    .build();
+            sl.add(f);
+        }
+        for (int i = 0; i < config.getMaxStores()/2; i++) {
+            ClothStore c = (ClothStore) new ClothStoreBuilder()
+                    .name("Boutique_" + i)
+                    .x(wd.getRng().nextInt(config.getMapSize()))
+                    .y(wd.getRng().nextInt(config.getMapSize()))
+                    .stock(50)
+                    .open(true)
+                    .build();
+            sl.add(c);
+        }
+
+        VIP v = (VIP) new VIPBuilder()
+                .money(200)
+                .id(1)
+                .x(5)
+                .y(5)
+                .active(true)
+                .name("bob")
+                .build();
+
+
+        while (wd.getTickCount() < 10) {
+            v.updateVIP(wd, ps, sl, m);
+            wd.addTick();
+        }
+
+        int result = v.getHunger();
+
+        assertEquals(10, result);
 
     }
 
