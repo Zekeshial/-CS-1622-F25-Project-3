@@ -5,7 +5,7 @@ import WorldData.WorldData;
 
 public class Janitor extends Person{
 
-    public Janitor(PersonBuilder builder) {
+    public Janitor(JanitorBuilder builder) {
         super(builder);
     }
 

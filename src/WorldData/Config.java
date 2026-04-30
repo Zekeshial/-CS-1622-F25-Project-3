@@ -5,6 +5,7 @@ public class Config {
     private int maxPeople = 500;
     private int maxStores = 50;
     private int seed = 2026;
+    private int maxADDrone = 5;
 
     public Config() {
     }
@@ -39,5 +40,13 @@ public class Config {
 
     public void setSeed(int seed) {
         this.seed = seed;
+    }
+
+    public int getMaxADDrone() {
+        return maxADDrone;
+    }
+
+    public void setMaxADDrone(int maxADDrone) {
+        this.maxADDrone = maxADDrone;
     }
 }

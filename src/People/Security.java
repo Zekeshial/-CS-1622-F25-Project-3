@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class Security extends Person {
 
-    public Security(PersonBuilder builder) {
+    public Security(SecurityBuilder builder) {
         super(builder);
     }
 

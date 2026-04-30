@@ -4,7 +4,7 @@ import Exceptitons.InsufficientFundsException;
 import MallSystems.PowerSystem;
 import WorldData.WorldData;
 
-public class Store {
+public abstract class Store {
 
     protected int x, y, stock;
     protected double vault;

@@ -2,7 +2,7 @@ package Stores;
 
 public class ClothStore extends Store{
 
-    public ClothStore(StoreBuilder builder) {
+    public ClothStore(ClothStoreBuilder builder) {
         super(builder);
     }
 }
