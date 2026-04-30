@@ -58,7 +58,6 @@ public abstract class Person implements Movable {
     }
 
     public void moveToward(int tx, int ty, WorldData wd) {
-
         if (x < tx) x++; else if (x > tx) x--;
         if (y < ty) y++; else if (y > ty) y--;
         x = wd.clamp(x);

@@ -1,5 +1,7 @@
 package MallSystems;
 
+import WorldData.WorldData;
+
 public class PowerSystem {
     private boolean mallPower = true;
     private int genHealth = 100;
@@ -28,6 +30,24 @@ public class PowerSystem {
 
     public void setBlackoutTicks(int blackoutTicks) {
         this.blackoutTicks = blackoutTicks;
+    }
+
+    public void updatePowerGrid(WorldData wd) {
+        if (blackoutTicks > 0) {
+            blackoutTicks--;
+            if (blackoutTicks == 0) {
+                mallPower = true;
+                System.out.println(">> POWER RESTORED");
+            }
+        } else {
+            // Decay health and check for failure
+            if (wd.getTickCount() % 5 == 0) genHealth--;
+            if (wd.getRng().nextInt(120) > genHealth) {
+                mallPower = false;
+                blackoutTicks = 30 + wd.getRng().nextInt(40);
+                System.out.println(">> BLACKOUT! Generator Health: " + genHealth);
+            }
+        }
     }
 
 }
