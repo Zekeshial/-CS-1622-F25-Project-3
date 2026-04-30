@@ -19,7 +19,7 @@ class WorldDataTest {
         WorldData wd = new WorldData();
         int result = wd.clamp(600);
 
-        assertEquals(499, result);
+        assertEquals(99, result);
     }
 
     @Test

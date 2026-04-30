@@ -105,19 +105,36 @@ public class Main {
         setupSimulation(personList, storeList, droneList, wd);
 
         // Run for 1000 ticks
-        while (tickCount < 1000) {
-            updateShoppers();
-            updateJanitors();
-            updateSecurity();
-            updateStoreSystems();
-            updatePowerGrid();
-            updateAdDrones();
+        while (wd.getTickCount() < 1000) {
+            //Updating People in the List of people
+            for (Person p : personList) {
+                if (p instanceof Shopper) {
+                    ((Shopper) p).updateShopper(wd, ps, storeList);
+                } else if (p instanceof Janitor) {
+                    ((Janitor) p).updateJanitors(ps, wd);
+                } else if (p instanceof Security) {
+                    ((Security) p).updateSecurity(personList, m, wd);
+                } else if (p instanceof VIP) {
+                    ((VIP) p).updateVIP(wd, ps, storeList, m);
+                }
+            }
+            //Updating a Store in the List of Stores
+            for (Store s : storeList) {
+                s.updateStoreSystem(wd, ps);
+            }
+            //Updating the PowerGrid
+            ps.updatePowerGrid(wd);
 
-            if (tickCount % 100 == 0) {
-                printMallStatus();
+            //Updating a drone from the List of Drones
+            for (ADDrone drone : droneList) {
+                drone.updateAdDrone(wd, ps, personList, storeList);
             }
 
-            tickCount++;
+            if (wd.getTickCount() % 100 == 0) {
+                m.printMallStatus(wd,ps,personList, storeList, config);
+            }
+
+            wd.addTick();
             Thread.sleep(10);
         }
         System.out.println("SIMULATION ENDED: Mall Closed.");

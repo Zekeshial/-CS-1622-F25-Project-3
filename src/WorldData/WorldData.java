@@ -50,6 +50,14 @@ public class WorldData {
         this.rng = rng;
     }
 
+    public void removeDebris(int tx, int ty) {
+        this.debrisMap[tx][ty] = 0;
+    }
+
+    public void addDebris(int tx, int ty, int amt) {
+        this.debrisMap[tx][ty] = amt;
+    }
+
     public int clamp(int val) {
         return Math.max(0, Math.min(c.getMapSize() - 1, val));
     }

@@ -69,7 +69,7 @@ public class ADDrone {
             // Power Failure Logic: Drones crash if power is out
             if (!ps.isMallPower() && active == 1) {
                 active = 2; // Set to crashed
-                wd.getDebrisMap()[y][x] += 15; // Create heavy debris
+                wd.addDebris(x , y,15); // Create heavy debris
                 System.out.println("DRONE_" + i + " CRASHED at (" + x + "," + y + ")");
                 continue;
             }
@@ -110,7 +110,7 @@ public class ADDrone {
 
                 // Chance to malfunction and generate minor dirt (exhaust)
                 if (wd.getRng().nextInt(100) < 2) {
-                    wd.getDebrisMap()[y][x]++;
+                    wd.addDebris(x,y,1);
                 }
             }
         }

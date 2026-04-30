@@ -2,6 +2,7 @@ package Stores;
 
 import MallSystems.PowerSystem;
 import WorldData.WorldData;
+import WorldData.Config;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -9,9 +10,16 @@ class StoreTest {
     @Test
     void updateStoreSystemTest() throws InterruptedException {
 
+        Config config = new Config();
         WorldData wd = new WorldData();
         PowerSystem ps = new PowerSystem();
-        Store cs = new ClothStore("Boutique_" + 1, 25, 25, 50, true);
+        ClothStore cs = (ClothStore) new ClothStoreBuilder()
+                .name("Boutique_" + 1)
+                .x(wd.getRng().nextInt(config.getMapSize()))
+                .y(wd.getRng().nextInt(config.getMapSize()))
+                .stock(50)
+                .open(true)
+                .build();
 
         while (wd.getTickCount() < 56) {
             cs.updateStoreSystem(wd,ps);
@@ -21,16 +29,23 @@ class StoreTest {
 
         int result = cs.getStock();
 
-        assertEquals(55, result);
+        assertEquals(60, result);
 
     }
 
     @Test
     void updateStoreSystemTest2() {
 
+        Config config = new Config();
         WorldData wd = new WorldData();
         PowerSystem ps = new PowerSystem();
-        Store cs = new ClothStore("Boutique_" + 1, 25, 25, 50, true);
+        ClothStore cs = (ClothStore) new ClothStoreBuilder()
+                .name("Boutique_" + 1)
+                .x(wd.getRng().nextInt(config.getMapSize()))
+                .y(wd.getRng().nextInt(config.getMapSize()))
+                .stock(50)
+                .open(true)
+                .build();
 
         cs.setStock(0);
         cs.updateStoreSystem(wd,ps);

@@ -25,7 +25,7 @@ public class Janitor extends Person{
                 if (wd.getDebrisMap()[ty][tx] > 0) {
                     moveToward(tx, ty, wd);
                     if (x == tx && y == ty) {
-                        wd.getDebrisMap()[ty][tx] = 0;
+                        wd.removeDebris(tx,ty);
                     }
                     foundDirt = true;
                     break;

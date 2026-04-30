@@ -10,13 +10,9 @@ class PersonTest {
     public void movableTest() {
         Person p = (Shopper) new ShopperBuilder()
                 .money(200)
-
-
-
-
                 .id(1)
-                .x(5)
-                .y(5)
+                .x(50)
+                .y(50)
                 .active(true)
                 .name("bob")
                 .build();
@@ -41,8 +37,8 @@ class PersonTest {
 
 
                 .id(1)
-                .x(5)
-                .y(5)
+                .x(50)
+                .y(50)
                 .active(true)
                 .name("bob")
                 .build();
@@ -63,13 +59,9 @@ class PersonTest {
     public void movableTest3() {
         Person p = (Shopper) new ShopperBuilder()
                 .money(200)
-
-
-
-
                 .id(1)
-                .x(5)
-                .y(5)
+                .x(499)
+                .y(50)
                 .active(true)
                 .name("bob")
                 .build();
@@ -80,7 +72,7 @@ class PersonTest {
         int yResult = p.getY();
         int xResult = p.getX();
 
-        assertEquals(499, xResult);
+        assertEquals(99, xResult);
         assertEquals(49, yResult);
 
 
@@ -95,8 +87,8 @@ class PersonTest {
 
 
                 .id(1)
-                .x(5)
-                .y(5)
+                .x(50)
+                .y(499)
                 .active(true)
                 .name("bob")
                 .build();
@@ -108,7 +100,7 @@ class PersonTest {
         int xResult = p.getX();
 
         assertEquals(51, xResult);
-        assertEquals(499, yResult);
+        assertEquals(99, yResult);
 
 
     }
@@ -122,8 +114,8 @@ class PersonTest {
 
 
                 .id(1)
-                .x(5)
-                .y(5)
+                .x(50)
+                .y(50)
                 .active(true)
                 .name("bob")
                 .build();
