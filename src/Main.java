@@ -99,10 +99,8 @@ public class Main {
 
 
 
-
-
-
         setupSimulation(personList, storeList, droneList, wd);
+
 
         // Run for 1000 ticks
         while (wd.getTickCount() < 1000) {
@@ -110,12 +108,12 @@ public class Main {
             for (Person p : personList) {
                 if (p instanceof Shopper) {
                     ((Shopper) p).updateShopper(wd, ps, storeList);
+                } else if (p instanceof VIP) {
+                    ((VIP) p).updateVIP(wd, ps, storeList, m);
                 } else if (p instanceof Janitor) {
                     ((Janitor) p).updateJanitors(ps, wd);
                 } else if (p instanceof Security) {
                     ((Security) p).updateSecurity(personList, m, wd);
-                } else if (p instanceof VIP) {
-                    ((VIP) p).updateVIP(wd, ps, storeList, m);
                 }
             }
             //Updating a Store in the List of Stores

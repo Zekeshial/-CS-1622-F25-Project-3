@@ -55,4 +55,28 @@ class StoreTest {
 
     }
 
+    @Test
+    void updateStoreSystemTest3() {
+
+        Config config = new Config();
+        WorldData wd = new WorldData();
+        PowerSystem ps = new PowerSystem();
+        ClothStore cs = (ClothStore) new ClothStoreBuilder()
+                .name("Boutique_" + 1)
+                .x(wd.getRng().nextInt(config.getMapSize()))
+                .y(wd.getRng().nextInt(config.getMapSize()))
+                .stock(50)
+                .open(true)
+                .build();
+
+        int resultX = cs.getX();
+        int resultY = cs.getY();
+
+        assertEquals(99, resultX);
+        assertEquals(50, resultY);
+
+
+
+    }
+
 }

@@ -109,10 +109,6 @@ class PersonTest {
     public void movableTest5() {
         Person p = (Shopper) new ShopperBuilder()
                 .money(200)
-
-
-
-
                 .id(1)
                 .x(50)
                 .y(50)

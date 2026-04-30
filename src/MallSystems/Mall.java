@@ -65,7 +65,7 @@ public class Mall {
         long totalDirt = 0;
         for (int y = 0; y < config.getMapSize(); y++) {
             for (int x = 0; x < config.getMapSize(); x++) {
-                totalDirt += wd.getDebrisMap()[y][x];
+                totalDirt += wd.getDebrisMap()[x][y];
             }
         }
 
@@ -77,7 +77,7 @@ public class Mall {
             int localDirt = 0;
             for (int r = -3; r <= 3; r++) {
                 for (int c = -3; c <= 3; c++) {
-                    localDirt += wd.getDebrisMap()[wd.clamp(store.getY() + r)][wd.clamp(store.getX() + c)];
+                    localDirt += wd.getDebrisMap()[wd.clamp(store.getX() + r)][wd.clamp(store.getY() + c)];
                 }
             }
             if (localDirt > maxLocalDirt) { maxLocalDirt = localDirt; filthiestStore = store; }

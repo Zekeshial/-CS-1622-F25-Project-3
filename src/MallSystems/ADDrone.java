@@ -63,6 +63,7 @@ public class ADDrone {
 
 
     public void updateAdDrone(WorldData wd, PowerSystem ps, ArrayList<Person> pl, ArrayList<Store> sl) {
+        //This while loop just ends up making the drones move faster. And allows the if statements to end the block of code if true.
         for (int i = 0; i < 5; i++) {
             if (active == 0) continue;
 
@@ -70,13 +71,13 @@ public class ADDrone {
             if (!ps.isMallPower() && active == 1) {
                 active = 2; // Set to crashed
                 wd.addDebris(x , y,15); // Create heavy debris
-                System.out.println("DRONE_" + i + " CRASHED at (" + x + "," + y + ")");
+                System.out.println("DRONE_" + id + " CRASHED at (" + x + "," + y + ")");
                 continue;
             }
 
             // Recovery Logic: If power is back and it was crashed, janitors "reset" them
             if (ps.isMallPower() && active == 2) {
-                if (wd.getDebrisMap()[y][x] == 0) { // Janitor cleared the crash site
+                if (wd.getDebrisMap()[x][y] == 0) { // Janitor cleared the crash site
                     active = 1;
                     x = 0; y = 0; // Respawn at base
                 }
@@ -104,13 +105,13 @@ public class ADDrone {
 
                     // Chance to pick a new target store
                     if (wd.getRng().nextInt(100) < 5) {
-                        target = wd.getRng().nextInt(20);
+                        target = wd.getRng().nextInt(sl.size());
                     }
                 }
 
                 // Chance to malfunction and generate minor dirt (exhaust)
                 if (wd.getRng().nextInt(100) < 2) {
-                    wd.addDebris(x,y,1);
+                    wd.getDebrisMap()[x][y]++;
                 }
             }
         }

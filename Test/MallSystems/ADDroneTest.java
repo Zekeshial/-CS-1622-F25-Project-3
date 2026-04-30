@@ -1,8 +1,9 @@
 package MallSystems;
 
 import People.Person;
-import Stores.Store;
+import Stores.*;
 import WorldData.WorldData;
+import WorldData.Config;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -35,20 +36,38 @@ class ADDroneTest {
     @Test
     void updateADDroneTest2() {
 
-        ADDrone d = new ADDrone(1,20,0,15,2);
+
+        Config config = new Config();
+        ADDrone d = new ADDrone(1,20,0,0,2);
         WorldData wd = new WorldData();
         PowerSystem ps = new PowerSystem();
         ArrayList<Person> pl = new ArrayList<>();
         ArrayList<Store> sl = new ArrayList<>();
 
-        d.updateAdDrone(wd, ps, pl, sl);
+
+        FoodStore f = (FoodStore) new FoodStoreBuilder()
+                .name("Food_Stall_" + 1)
+                .x(50)
+                .y(50)
+                .stock(100)
+                .open(true)
+                .build();
+        sl.add(f);
+
+
+
+        while (wd.getTickCount() < 1000) {
+            d.updateAdDrone(wd, ps, pl, sl);
+            wd.addTick();
+        }
+
         int resultActive = d.getActive();
         int resultX = d.getX();
         int resultY = d.getY();
 
         assertEquals(1,resultActive);
-        assertEquals(0,resultY);
-        assertEquals(0,resultX);
+        assertEquals(50,resultY);
+        assertEquals(50,resultX);
 
     }
 

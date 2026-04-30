@@ -20,6 +20,10 @@ public class PowerSystem {
         return genHealth;
     }
 
+    public void addGenHealth() {
+        genHealth = Math.min(100, genHealth + 2);
+    }
+
     public void setGenHealth(int genHealth) {
         this.genHealth = genHealth;
     }
