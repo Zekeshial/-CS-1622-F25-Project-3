@@ -12,7 +12,10 @@ public class VIP extends Person {
     private double money;
     private int stress;
     private int hunger;
-
+    /**
+     * Constructor for this class
+     * @param builder the builder for the constructor
+     */
     public VIP(VIPBuilder builder) {
         super(builder);
         this.money = builder.money;
@@ -48,6 +51,13 @@ public class VIP extends Person {
         this.hunger += amt;
     }
 
+    /**
+     * The functionality of a VIP in the program
+     * @param wd thw world data of the program
+     * @param ps the power system of the program
+     * @param sl the list of stores for the program
+     * @param m the mall of the program
+     */
     public void updateVIP(WorldData wd, PowerSystem ps, ArrayList<Store> sl, Mall m) {
         if (active) {
             // Behavior Logic

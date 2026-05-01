@@ -9,6 +9,13 @@ import WorldData.Config;
 import java.util.ArrayList;
 
 public class Main {
+    /**
+     * The creation of items in the program
+     * @param pl The list of people
+     * @param sl the list of stores
+     * @param dl the list of drones
+     * @param wd the world data
+     */
     static void setupSimulation(ArrayList<Person> pl, ArrayList<Store> sl, ArrayList<ADDrone> dl, WorldData wd) {
         Config config = new Config();
         // Initialize Stores

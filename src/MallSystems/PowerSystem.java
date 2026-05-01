@@ -20,6 +20,9 @@ public class PowerSystem {
         return genHealth;
     }
 
+    /**
+     * Adds 2 to the health of the generator
+     */
     public void addGenHealth() {
         genHealth = Math.min(100, genHealth + 2);
     }
@@ -36,6 +39,10 @@ public class PowerSystem {
         this.blackoutTicks = blackoutTicks;
     }
 
+    /**
+     * the functionality of the power system of the program
+     * @param wd the world data of the program
+     */
     public void updatePowerGrid(WorldData wd) {
         if (blackoutTicks > 0) {
             blackoutTicks--;

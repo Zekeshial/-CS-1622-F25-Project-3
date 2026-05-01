@@ -10,7 +10,10 @@ public class Shopper extends Person {
     private double money;
     private int stress;
     private int hunger;
-
+    /**
+     * Constructor for this class
+     * @param builder the builder for the constructor
+     */
     public Shopper(ShopperBuilder builder) {
         super(builder);
         this.money = builder.money;
@@ -42,10 +45,20 @@ public class Shopper extends Person {
         this.hunger = hunger;
     }
 
+    /**
+     * adds hunger to a shopper
+     * @param amt the amount you wish to add
+     */
     public void addHunger(int amt) {
         this.hunger += amt;
     }
 
+    /**
+     * The functionality of a shopper in the program
+     * @param wd thw world data of the program
+     * @param ps the power system of the program
+     * @param sl the list of stores for the program
+     */
     public void updateShopper(WorldData wd, PowerSystem ps, ArrayList<Store> sl) {
         if (active) {
             // Behavior Logic

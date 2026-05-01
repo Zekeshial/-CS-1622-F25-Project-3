@@ -61,7 +61,13 @@ public class ADDrone {
         this.active = active;
     }
 
-
+    /**
+     * The functionality for ad drone in the program
+     * @param wd the world data of the program
+     * @param ps the power system of the program
+     * @param pl the list of people in the program
+     * @param sl the list of stores in the program
+     */
     public void updateAdDrone(WorldData wd, PowerSystem ps, ArrayList<Person> pl, ArrayList<Store> sl) {
         //This while loop just ends up making the drones move faster. And allows the if statements to end the block of code if true.
         for (int i = 0; i < 5; i++) {

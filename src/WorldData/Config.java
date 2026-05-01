@@ -1,5 +1,8 @@
 package WorldData;
 
+/**
+ * The default values for the program.
+ */
 public class Config {
     private int mapSize = 100;
     private int maxPeople = 500;

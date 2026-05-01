@@ -6,11 +6,20 @@ import WorldData.WorldData;
 import java.util.ArrayList;
 
 public class Security extends Person {
-
+    /**
+     * Constructor for this class
+     * @param builder the builder for the constructor
+     */
     public Security(SecurityBuilder builder) {
         super(builder);
     }
 
+    /**
+     * The functionality of a person called Security for the program
+     * @param pl the list of people for the program
+     * @param m the mall of the program
+     * @param wd the world data of the program
+     */
     public void updateSecurity(ArrayList<Person> pl, Mall m, WorldData wd) {
         for (Person p : pl) {
             try {

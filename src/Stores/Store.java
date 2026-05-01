@@ -68,6 +68,10 @@ public abstract class Store {
         this.open = open;
     }
 
+    /**
+     * Adds money to the vault
+     * @param amt amount you wish to add
+     */
     public void addMoneyToVault(double amt){
         try {
             if (amt <= 0) {
@@ -83,6 +87,10 @@ public abstract class Store {
 
     }
 
+    /**
+     * removes money from the vault
+     * @param amt the amount you wish to remove
+     */
     public void removeMoneyFromVault(double amt){
         try {
             if (amt > vault) {
@@ -100,6 +108,10 @@ public abstract class Store {
 
     }
 
+    /**
+     * Adds an amount to the stock
+     * @param amt the amount you wish to add
+     */
     public void addStock(int amt) {
         try {
             if (amt <= 0) {
@@ -113,6 +125,10 @@ public abstract class Store {
         }
     }
 
+    /**
+     * removes an amount from the stock
+     * @param amt amount you wish to remove
+     */
     public void removeStock(int amt) {
         try {
             if (amt > stock) {
@@ -129,6 +145,11 @@ public abstract class Store {
         }
     }
 
+    /**
+     * Functionality of a store within the program
+     * @param wd the world data of the program
+     * @param ps the power system of the program
+     */
     public void updateStoreSystem(WorldData wd, PowerSystem ps) {
         if (stock <= 0) open = false;
         if (ps.isMallPower() && wd.getTickCount() % 50 == 0) stock += 5; // Passive restock

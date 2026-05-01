@@ -29,14 +29,30 @@ public class Mall {
         this.mallReputation = mallReputation;
     }
 
+    /**
+     * Adds rep to the malls reputation
+     * @param amt amount you wish to add
+     */
     public void addMallReputation(double amt) {
         this.mallReputation += amt;
     }
 
+    /**
+     * removes rep from the malls reputation
+     * @param amt amount you wish to remove
+     */
     public void subtractMallReputation(double amt) {
         this.mallReputation -= amt;
     }
 
+    /**
+     * A print out of information regarding the status of the mall
+     * @param wd the world data of the program
+     * @param ps the power system of the program
+     * @param pl the list of people in the program
+     * @param sl the list of stores in the program
+     * @param config the config of the program
+     */
     public void printMallStatus(WorldData wd, PowerSystem ps, ArrayList<Person> pl, ArrayList<Store> sl, Config config) {
         System.out.println("=========================================");
         System.out.println("       OMNI-MALL EXECUTIVE SUMMARY       ");

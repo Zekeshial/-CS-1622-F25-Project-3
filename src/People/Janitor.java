@@ -5,11 +5,19 @@ import WorldData.WorldData;
 import WorldData.Config;
 
 public class Janitor extends Person{
-
+    /**
+     * Constructor for this class
+     * @param builder the builder for the constructor
+     */
     public Janitor(JanitorBuilder builder) {
         super(builder);
     }
 
+    /**
+     * Functionality for a Janitor within the program
+     * @param ps the Power system of the program
+     * @param wd the world data of the program
+     */
     public void updateJanitors(PowerSystem ps, WorldData wd) {
 
         Config config = new Config();

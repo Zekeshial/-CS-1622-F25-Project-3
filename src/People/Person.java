@@ -57,6 +57,12 @@ public abstract class Person implements Movable {
         this.name = name;
     }
 
+    /**
+     * Moves a person closer to a specific target
+     * @param tx the target x value you wish to move to
+     * @param ty the target x value you wish to move to
+     * @param wd the world data of the program
+     */
     public void moveToward(int tx, int ty, WorldData wd) {
         if (x < tx) x++; else if (x > tx) x--;
         if (y < ty) y++; else if (y > ty) y--;
